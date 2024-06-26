@@ -11,6 +11,9 @@
             </div>
         </div>
         <input type="button" :disabled="!userId" @click="goBoard" value="로그인" class="btn">
+        <input type="button" @click="openPop" value="팝업테스트" class="btn">
+        <input type="button" @click="alertTet" value="Alert" class="btn">
+        <input type="button" @click="confirm" value="confirm" class="btn">
   </div>
 </template>
 
@@ -27,6 +30,31 @@ const goBoard = () =>{
     }
     
 }
+
+const openPop = () =>{
+  $fx
+    .throwDialog('BoardList', { data: {}, close: false, closeLabel: '확인' })
+    .then((result) => {
+      if (result) {
+        console.log('throwDialog result', result)
+      }
+    })
+}
+
+const alertTet = () =>{
+  $fx.throwAlert('알림', '알림창입니다.')
+}
+const confirm = () =>{
+        $fx
+        .throwConfirm('승인을 진행하시겠습니까?', '알림', {
+          confirmLabel: '확인',
+          closeLabel: '취소',
+        })
+        .then((result) => {
+          console.log(result)
+        }
+        )
+      }
 
 </script>
 

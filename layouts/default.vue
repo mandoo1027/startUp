@@ -10,7 +10,17 @@
   </nav>
     <slot />
   </div>
+
+  <div v-for="dialog in dialogList" :key="dialog._id">
+    <LayerPopup v-bind="dialog" />
+  </div>
 </template>
+<script setup>
+
+import { useDialogStore } from '~/store/dialogStore'
+import LayerPopup from '@/components/common/LayerPopup'
+const dialogList = computed(() => useDialogStore().getDialogList())
+</script>
 
 <style scoped>
 
