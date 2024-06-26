@@ -6,12 +6,14 @@
 </template>
 
 <script setup>
+
 //router
-const router = useRouter();
+//const router = useRouter();
 
 //move to login page
 const goLoginP = () => {
-    router.push("LOG/login")
+    //console.log(router);
+    router.push("/LOG/login");
 }
 </script>
 
