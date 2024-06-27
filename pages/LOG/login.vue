@@ -22,7 +22,7 @@ const userPw = ref('');
 
 const goBoard = () =>{
     if(confirm(`아이디 : ${userId.value} 사용자가 맞습니까?`)){
-        const params = {userId : userId, userPw : userPw}
+        const params = {userId : userId.value, userPw : userPw.value}
         router.push({path : "/Board/boardList", query : params})
     }
     
