@@ -11,7 +11,7 @@ const router = useRouter();
 
 //move to login page
 const goLoginP = () => {
-    console.log(111)
+    console.log(111222)
     router.push("LOG/login")
 }
 </script>
