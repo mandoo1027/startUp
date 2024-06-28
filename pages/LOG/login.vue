@@ -53,8 +53,6 @@ const confirm = () =>{
         )
       }
 
-      //git test2222z
-
 </script>
 
 <style scoped>
