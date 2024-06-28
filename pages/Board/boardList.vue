@@ -1,13 +1,13 @@
 <template>
     <div style="margin: 10px 10px;">
         <h2>게시판</h2>
-        <p>사용자 수: {{ userList.length }}</p>
+        <p>사용자 수: {{ userCnt }}</p>
         <hr style="margin: 10px 0px 10px 0px;">
 
-        <BoardList @update="update1" ref="boardChid" :userList="userList"></BoardList>
+        <BoardList @update="update1" @updateCnt = "updateCnt1" ref="boardChid" :userList="userList"></BoardList>
 
         <hr style="margin: 10px 0px 10px 0px;">
-        <input type="button" value="expos" @click="exposTest">
+        <input type="button" value="삭제" @click="deleteExpos">
     </div>
 </template>
 
@@ -27,10 +27,19 @@ const userList = [
 ]
 
 const boardChid = ref(null);
+const userCnt = ref(0)
+onMounted(async () => {
+    await nextTick();  // DOM 업데이트를 기다림
+    if (boardChid.value) {
+        userCnt.value = boardChid.value.userCnt;  // 자식 컴포넌트의 userCnt 값을 가져옴
+    }
+});
+const updateCnt1 = (param) => {
+    userCnt.value = param
+}
 
-const exposTest = () => {
-    console.log(boardChid.value.a1);
-    boardChid.value.a2()
+const deleteExpos = () => {
+    boardChid.value.deleteUser()
 }
 
 let count = ref(0)
@@ -39,9 +48,4 @@ const update1 = (params) => {
     count.value = params.cnt
     console.log(count.value);
 }
-
 </script>
-
-<style lang="scss" scoped>
-
-</style>
