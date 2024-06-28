@@ -55,7 +55,9 @@ const confirm = () =>{
         }
         )
       }
-
+const testtt = () =>{
+  console.log('testtt')
+}
       //git test2222z
 
 </script>
