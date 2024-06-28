@@ -1,6 +1,6 @@
 <template>
     <div>
-       {{ userId }}//
+       {{ userId }}
     </div>
 </template>
 
@@ -8,7 +8,6 @@
 
 const props = defineProps({
     userId :String
-
 })
 
 </script>
