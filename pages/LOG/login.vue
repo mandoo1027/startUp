@@ -28,6 +28,33 @@ const goBoard = () =>{
     
 }
 
+const openPop = () =>{
+  $fx
+    .throwDialog('BoardList', { data: {}, close: false, closeLabel: '확인' })
+    .then((result) => {
+      if (result) {
+        console.log('throwDialog result', result)
+      }
+    })
+}
+
+const alertTet = () =>{
+  $fx.throwAlert('알림', '알림창입니다.')
+}
+const confirm = () =>{
+        $fx
+        .throwConfirm('승인을 진행하시겠습니까?', '알림', {
+          confirmLabel: '확인',
+          closeLabel: '취소',
+        })
+        .then((result) => {
+          console.log(result)
+        }
+        )
+      }
+
+      //git test
+
 </script>
 
 <style scoped>
